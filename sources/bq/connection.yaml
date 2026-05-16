@@ -2,4 +2,5 @@ name: bq
 type: bigquery
 options:
   project_id: bundangwoori-492711
-  authenticator: gcloud-cli
+  authenticator: service-account
+  keyFilename: keyfile.json
