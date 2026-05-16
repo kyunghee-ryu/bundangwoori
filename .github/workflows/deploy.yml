@@ -28,7 +28,7 @@ jobs:
       - name: Fetch BigQuery Data
         env:
           # 왼쪽(소문자 bq)은 Evidence 엔진용, 오른쪽(대문자 BQ)은 GitHub Secret 이름입니다.
-          EVIDENCE_SOURCE__bq__keyfile: ${{ secrets.EVIDENCE_SOURCE__BQ__keyfile }}
+          EVIDENCE_SOURCE__bq__private_key: ${{ secrets.EVIDENCE_SOURCE__BQ__private_key }}
         run: npm run sources
         
       - name: Build static site
