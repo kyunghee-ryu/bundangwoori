@@ -28,7 +28,7 @@ jobs:
       - name: Fetch BigQuery Data
         run: npm run sources
         env:
-          EVIDENCE_SOURCE__BQ__KEYFILE: ${{ secrets.EVIDENCE_SOURCE__BQ__KEYFILE }}
+          EVIDENCE_SOURCE__bq__keyfile: ${{ secrets.EVIDENCE_SOURCE__bq__keyfile }}
         
       - name: Build static site
         run: npm run build
