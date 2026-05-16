@@ -1,0 +1,5 @@
+name: bq
+type: bigquery
+options:
+  project_id: bundangwoori-492711
+  authenticator: gcloud-cli

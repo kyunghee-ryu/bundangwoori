@@ -1,0 +1,1 @@
+[{"name":"event_date","evidenceType":"date","typeFidelity":"precise"},{"name":"original_date","evidenceType":"date","typeFidelity":"precise"},{"name":"series_group","evidenceType":"string","typeFidelity":"precise"},{"name":"total_value","evidenceType":"number","typeFidelity":"precise"}]

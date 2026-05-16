@@ -1,0 +1,59 @@
+1. node.js 설치
+ Node.js : 자바스크립트 실행 엔진 
+ -> 터미널에서 node app.js 로 실행이 가능해짐. 
+
+ https://nodejs.org/ LTS 버전 설치 
+ npm = Node.js용 앱스토어/Nuget 같은 것임
+ Docker = 가상환경 
+ docker는 말고, node.js 윈도우용 설치 후 node -v, npm -v 확인
+
+2. Google Cloud CLI 설치 https://cloud.google.com/sdk/docs/install 
+ 설치 후 powershell에서 gcloud version 확인 
+ gcloud auth login
+ gcloud project list 
+ 프로젝트설정 gcloud config set project 프로젝트ID
+ 
+3. Evidence 프로젝트 생성 
+ 폴더 만들고,
+ npx degit evidence-dev/template my-report	(공식 템플릿 가져오기)
+ cd my-report 	(생성된 프로젝트로 이동) 
+ npm install 		(npm은 프로젝트 폴더마다 npm install 해줌)
+ npm run sources 	(샘플 데이터 빌드)
+ npm run dev 		(개발 서버 실행)	localhost:3000에서 pages/index.md 보이면 성공 
+ 
+4. 빅쿼리 연결  
+ mkdir -p sources/bq 	(빅쿼리 소스폴더 생성)
+ 
+ sources/bq/connection.yaml 파일 생성 
+ -----
+ name: bq
+ type: bigquery
+ options:
+  project_id: bundangwoori-492711
+  authenticator: gcloud-cli
+ -----
+ 
+ gcloud auth application-default login 	(gcloud 로그인) 
+ 
+5. 차트 만들기 
+ Evidence의 매력은 sources 폴더에 작성한 .sql 파일이 자동으로 변수처럼 마운트된다는 점이다
+ BarChart 에서 stack=true : 누적막대로 나옴
+ 
+ 
+6. 배포 
+ npm run build 
+ 
+ git init
+ git add .
+ git commit -m "Deploy to GitHub Pages"
+ git push -f https://github.com/사용자명/저장소명.git main:gh-pages
+ 설정: GitHub 저장소 Settings > Pages에서 Source를 main 브랜치로 선택합니다.
+ 잠시 후 pages 상단에 site 주소가 뜸 
+ https://kyunghee-ryu.github.io/bundangwoori/ 
+  
+ npm run sources 
+ npm run build 
+ 
+ git add.
+ git commit -m "수정내용"
+ git push origin main 
